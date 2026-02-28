@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background: linear-gradient(135deg,#000000,#0f0f2d);
+    color:white;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.8);
+    position:fixed;
+    width:100%;
+    z-index:1000;
+}
+
+nav h1{
+    color:#00ffff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+}
+
+nav ul li a:hover{
+    color:#00ffff;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding-top:80px;
+}
+
+.profile-pic{
+    width:220px;      /* Bigger Image */
+    height:220px;     /* Bigger Image */
+    border-radius:50%;
+    border:4px solid #00ffff;
+    box-shadow:0 0 40px #00ffff;
+    margin-bottom:20px;
+    object-fit:cover;
+}
+
+.hero h2{
+    font-size:3rem;
+    color:#00ffff;
+}
+
+.typing{
+    margin-top:15px;
+    font-size:1.4rem;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    background:#00ffff;
+    color:black;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:white;
+}
+
+/* SECTIONS */
+section{
+    padding:120px 10%;
+}
+
+.section-title{
+    font-size:2rem;
+    margin-bottom:40px;
+    color:#00ffff;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00ffff;
+}
+
+.counter{
+    font-size:2rem;
+    color:#00ffff;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#000;
+}
+
