@@ -1,355 +1,533 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="en" data-theme="night">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Moxit | Creator • Gamer • Future Developer</title>
+<meta name="description" content="Official portfolio of Moxit — Minecraft creator and YouTuber building creative projects and leveling up as a web developer.">
+<meta name="theme-color" content="#0a0e16">
 
-<meta name="description" content="Official portfolio of Moxit - Minecraft creator, YouTuber and future web developer building creative projects.">
+<!-- Open Graph -->
+<meta property="og:title" content="Moxit | Creator • Gamer • Future Developer">
+<meta property="og:description" content="Minecraft creator, YouTuber and future web developer building creative projects.">
+<meta property="og:image" content="logo.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Moxit | Creator • Gamer • Future Developer">
+<meta name="twitter:description" content="Minecraft creator, YouTuber and future web developer building creative projects.">
+
+<link rel="icon" href="logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="logo.jpg.jpg">
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
 
-<!-- Scroll Progress -->
+<a class="skip-link" href="#main">Skip to content</a>
 
-<div id="progress-bar"></div>
+<!-- ================= PRELOADER ================= -->
+<div id="preloader" aria-hidden="true">
+  <div class="preloader-box">
+    <img src="logo.jpg" alt="" class="preloader-logo">
+    <div class="preloader-bar"><span></span></div>
+    <p class="preloader-text">LOADING WORLD<span class="dots">...</span></p>
+  </div>
+</div>
 
-<!-- Particle Background -->
+<!-- ================= AMBIENT CANVAS ================= -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-<div id="particles-js"></div>
+<!-- ================= SCROLL PROGRESS (XP BAR) ================= -->
+<div id="progress-wrap" aria-hidden="true"><div id="progress-bar"></div></div>
+
+<!-- ================= CURSOR (desktop only) ================= -->
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <!-- ================= NAVBAR ================= -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-left">
+      <img src="logo.jpg" class="nav-logo" alt="Moxit logo">
+      <span class="nav-name">MOXIT</span>
+    </a>
 
-<nav>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#stats">Stats</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Shop</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<div class="nav-left">
-
-<img src="logo.jpg.jpg" class="nav-logo" alt="Moxit Logo">
-
-<h1>Moxit</h1>
-
-</div>
-
-<ul>
-
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#stats">Stats</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle day and night mode" aria-pressed="false">
+        <svg id="iconMoon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" fill="currentColor"/></svg>
+        <svg id="iconSun" viewBox="0 0 24 24" width="18" height="18" hidden><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 17.5l2 2M4.5 19.5l2-2M17.5 6.5l2-2"/></g></svg>
+      </button>
+      <button id="menuToggle" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </nav>
 
+<!-- ================= MOBILE MENU ================= -->
+<div id="mobileMenu" class="mobile-menu">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Shop</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
 <!-- ================= HERO ================= -->
-
 <section class="hero" id="home">
+  <div class="hero-container">
+    <p class="eyebrow">// Player Profile</p>
 
-<div class="hero-container">
+    <div class="hero-avatar-wrap">
+      <img src="logo.jpg" class="profile-pic" alt="Moxit's Minecraft-style avatar">
+    </div>
 
-<img src="logo.jpg.jpg" class="profile-pic" alt="Moxit Logo">
+    <h1 class="hero-name">MOXIT</h1>
+    <div class="typing-row">
+      <span class="typing-caret-prefix">&gt;</span>
+      <span class="typing" id="typing"></span><span class="caret">_</span>
+    </div>
 
-<h2>Hello, I am Moxit 🚀</h2>
+    <p class="hero-desc">
+      Minecraft creator and YouTuber learning to build on the web — currently
+      grinding XP in HTML, CSS and JavaScript, one project at a time.
+    </p>
 
-<div class="typing" id="typing"></div>
+    <div class="hero-buttons">
+      <a href="https://www.youtube.com/@MoxitXGaming" target="_blank" rel="noopener" class="btn btn-primary">Main Channel</a>
+      <a href="https://www.youtube.com/@MoxitClips" target="_blank" rel="noopener" class="btn btn-ghost">Clips Channel</a>
+    </div>
 
-<p class="hero-desc">
-Minecraft creator, YouTuber and learning web developer who loves building creative projects on the internet.
-</p>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@MoxitXGaming" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M23 12s0-3.6-.46-5.3a3 3 0 0 0-2.1-2.1C18.7 4 12 4 12 4s-6.7 0-8.44.6a3 3 0 0 0-2.1 2.1C1 8.4 1 12 1 12s0 3.6.46 5.3a3 3 0 0 0 2.1 2.1C5.3 20 12 20 12 20s6.7 0 8.44-.6a3 3 0 0 0 2.1-2.1C23 15.6 23 12 23 12Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9l5 3-5 3Z" fill="currentColor"/></svg>
+        <span>YouTube</span>
+      </a>
+      <a href="mailto:moxitsonwal618@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 6.5l9 6.5 9-6.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Email</span>
+      </a>
+    </div>
 
-<div class="hero-buttons">
+    <div class="player-card" role="note" aria-label="Player card">
+      <div class="chip"><span class="chip-label">Role</span><span class="chip-val">Creator &amp; Builder</span></div>
+      <div class="chip"><span class="chip-label">Server</span><span class="chip-val">The Internet</span></div>
+      <div class="chip"><span class="chip-label">Status</span><span class="chip-val"><i class="dot"></i>Online</span></div>
+    </div>
+  </div>
 
-<a href="https://www.youtube.com/@MoxitXGaming" target="_blank" class="btn">Main Channel</a>
-
-<a href="https://www.youtube.com/@MoxitClips" target="_blank" class="btn">Clips Channel</a>
-
-</div>
-
-<div class="social-links">
-
-<a href="https://www.youtube.com/@MoxitXGaming" target="_blank">YouTube</a> <a href="mailto:moxitsonwal618@gmail.com">Email</a>
-
-</div>
-
-</div>
-
+  <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+    <span></span>
+  </a>
 </section>
-
-<div class="divider"></div>
 
 <!-- ================= ABOUT ================= -->
-
 <section id="about">
+  <div class="container">
+    <p class="eyebrow center">// Player Bio</p>
+    <h2 class="section-title">About Me</h2>
 
-<h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text panel">
+        <p>
+          I'm a Minecraft player and YouTube creator who loves building
+          things — both in-game and on the internet. Alongside growing my
+          channels, I'm teaching myself web development one project at a time.
+        </p>
+        <p>
+          The long-term goal: become a developer and creator who ships things
+          people actually enjoy using — and keeps having fun doing it.
+        </p>
+      </div>
 
-<div class="about-container">
-
-<p>
-
-I am a passionate Minecraft gamer and YouTube content creator who enjoys building things on the internet.
-Along with growing my YouTube channels, I am also learning web development step by step.
-
-My goal is to become a skilled developer, content creator, and build creative projects that people enjoy.
-
-</p>
-
-</div>
-
+      <div class="about-facts panel">
+        <h3 class="facts-title">Quick Facts</h3>
+        <ul class="facts-list">
+          <li><span>Focus</span><strong>Minecraft PvP &amp; Content</strong></li>
+          <li><span>Currently Learning</span><strong>Web Development</strong></li>
+          <li><span>Channels Running</span><strong>2</strong></li>
+          <li><span>Mission</span><strong>Build cool things people enjoy</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- ================= STATS ================= -->
-
 <section id="stats">
+  <div class="container">
+    <p class="eyebrow center">// HUD</p>
+    <h2 class="section-title">My Stats</h2>
+    <p class="section-sub">Numbers I update by hand — not a live feed.</p>
 
-<h2 class="section-title">My Stats</h2>
-
-<div class="card-container">
-
-<div class="card">
-
-<h3>YouTube Channels</h3>
-
-<div class="counter">2</div>
-
-</div>
-
-<div class="card">
-
-<h3>Total Subscribers</h3>
-
-<div class="counter">250+</div>
-
-</div>
-
-<div class="card">
-
-<h3>Shorts Views</h3>
-
-<div class="counter">300K+</div>
-
-</div>
-
-<div class="card">
-
-<h3>Web Projects</h3>
-
-<div class="counter">3+</div>
-
-</div>
-
-</div>
-
+    <div class="card-grid stats-grid">
+      <div class="card stat-card">
+        <span class="stat-icon">📺</span>
+        <h3>YouTube Channels</h3>
+        <div class="counter" data-target="2" data-suffix="">0</div>
+      </div>
+      <div class="card stat-card">
+        <span class="stat-icon">👥</span>
+        <h3>Total Subscribers</h3>
+        <div class="counter" data-target="250" data-suffix="+">0</div>
+      </div>
+      <div class="card stat-card">
+        <span class="stat-icon">▶️</span>
+        <h3>Shorts Views</h3>
+        <div class="counter" data-target="300" data-suffix="K+">0</div>
+      </div>
+      <div class="card stat-card">
+        <span class="stat-icon">🧩</span>
+        <h3>Web Projects</h3>
+        <div class="counter" data-target="3" data-suffix="+">0</div>
+      </div>
+    </div>
+  </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- ================= SKILLS ================= -->
-
 <section id="skills">
+  <div class="container">
+    <p class="eyebrow center">// Skill Tree</p>
+    <h2 class="section-title">Skills</h2>
 
-<h2 class="section-title">Skills</h2>
+    <div class="skills-container">
 
-<div class="skills-container">
+      <div class="skill panel" data-percent="85">
+        <div class="skill-head">
+          <p>HTML Development</p>
+          <span class="skill-lvl">Lv. 4</span>
+        </div>
+        <div class="skill-bar"><span style="--w:85%"></span></div>
+      </div>
 
-<div class="skill">
+      <div class="skill panel" data-percent="80">
+        <div class="skill-head">
+          <p>CSS Styling</p>
+          <span class="skill-lvl">Lv. 4</span>
+        </div>
+        <div class="skill-bar"><span style="--w:80%"></span></div>
+      </div>
 
-<p>HTML Development</p>
+      <div class="skill panel" data-percent="75">
+        <div class="skill-head">
+          <p>Content Creation</p>
+          <span class="skill-lvl">Lv. 3</span>
+        </div>
+        <div class="skill-bar"><span style="--w:75%"></span></div>
+      </div>
 
-<div class="skill-bar"><span style="width:85%"></span></div>
+      <div class="skill panel" data-percent="65">
+        <div class="skill-head">
+          <p>Minecraft PvP</p>
+          <span class="skill-lvl">Lv. 3</span>
+        </div>
+        <div class="skill-bar"><span style="--w:65%"></span></div>
+      </div>
 
-</div>
+      <div class="skill panel" data-percent="70">
+        <div class="skill-head">
+          <p>Video Editing</p>
+          <span class="skill-lvl">Lv. 3</span>
+        </div>
+        <div class="skill-bar"><span style="--w:70%"></span></div>
+      </div>
 
-<div class="skill">
-
-<p>CSS Styling</p>
-
-<div class="skill-bar"><span style="width:80%"></span></div>
-
-</div>
-
-<div class="skill">
-
-<p>Content Creation</p>
-
-<div class="skill-bar"><span style="width:70%"></span></div>
-
-</div>
-
-<div class="skill">
-
-<p>Minecraft PvP</p>
-
-<div class="skill-bar"><span style="width:65%"></span></div>
-
-</div>
-
-<div class="skill">
-
-<p>Video Editing</p>
-
-<div class="skill-bar"><span style="width:45%"></span></div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<!-- ================= JOURNEY / ACHIEVEMENTS ================= -->
+<section id="journey">
+  <div class="container">
+    <p class="eyebrow center">// Advancements</p>
+    <h2 class="section-title">My Journey</h2>
+    <p class="section-sub">Scroll down — milestones unlock as you go.</p>
+
+    <ol class="timeline">
+      <li class="timeline-item" data-title="Started the Main Channel">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Started the Main Channel</h3>
+          <p>Launched MoxitXGaming for Minecraft gameplay and PvP content.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Launched the Clips Channel">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Launched the Clips Channel</h3>
+          <p>Spun up MoxitClips to share Shorts and highlight moments.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Crossed 250 Subscribers">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Crossed 250 Subscribers</h3>
+          <p>Hit 250+ subscribers across both channels combined.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Passed 300K Shorts Views">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Passed 300K Shorts Views</h3>
+          <p>Shorts started reaching a real audience — 300K+ views and counting.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Started Learning to Code">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Started Learning to Code</h3>
+          <p>Began teaching myself HTML, CSS and JavaScript from scratch.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Shipped 3+ Web Projects">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Shipped 3+ Web Projects</h3>
+          <p>Built and finished multiple small web projects to practice the craft.</p>
+        </div>
+      </li>
+      <li class="timeline-item" data-title="Upgraded This Portfolio">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content panel">
+          <h3>Upgraded This Portfolio</h3>
+          <p>Rebuilt this very site — the version you're looking at right now.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
 
 <!-- ================= PROJECTS ================= -->
-
 <section id="projects">
+  <div class="container">
+    <p class="eyebrow center">// Quest Log</p>
+    <h2 class="section-title">Projects</h2>
 
-<h2 class="section-title">Projects</h2>
+    <div class="filter-row" role="tablist" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web</button>
+      <button class="filter-btn" data-filter="minecraft" role="tab" aria-selected="false">Minecraft</button>
+    </div>
 
-<div class="card-container">
+    <div class="card-grid" id="projectGrid">
+      <div class="card project-card" data-tag="web">
+        <div class="card-top">
+          <span class="tag tag-web">Web</span>
+          <span class="status status-live">Live</span>
+        </div>
+        <h3>YouTube Portfolio Website</h3>
+        <p>The site you're on right now — showcases my projects, skills and YouTube journey.</p>
+      </div>
 
-<div class="card">
+      <div class="card project-card" data-tag="web">
+        <div class="card-top">
+          <span class="tag tag-web">Web</span>
+          <span class="status status-concept">Concept</span>
+        </div>
+        <h3>Moxit Games Website</h3>
+        <p>A gaming website idea where users can explore and play browser games.</p>
+      </div>
 
-<h3>YouTube Portfolio Website</h3>
-
-<p>My personal portfolio website that showcases my projects, skills and YouTube journey.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Moxit Games Website</h3>
-
-<p>A gaming website idea where users can explore and play many browser games.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Minecraft SMP Story</h3>
-
-<p>A creative Minecraft story project inspired by Lifesteal SMP and PvP battles.</p>
-
-</div>
-
-</div>
-
+      <div class="card project-card" data-tag="minecraft">
+        <div class="card-top">
+          <span class="tag tag-mc">Minecraft</span>
+          <span class="status status-concept">Concept</span>
+        </div>
+        <h3>Minecraft SMP Story</h3>
+        <p>A creative Minecraft story project inspired by Lifesteal SMP and PvP battles.</p>
+      </div>
+    </div>
+  </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- ================= SERVICES ================= -->
-
 <section id="services">
+  <div class="container">
+    <p class="eyebrow center">// The Shop</p>
+    <h2 class="section-title">Services I Offer</h2>
+    <p class="section-sub">Prices may vary with complexity — message me for an exact quote.</p>
 
-<h2 class="section-title">Services I Offer</h2>
+    <div class="card-grid">
+      <div class="card service-card">
+        <span class="service-icon">🖼️</span>
+        <h3>YouTube Thumbnail Design</h3>
+        <p>Custom eye-catching gaming thumbnails designed to attract viewers.</p>
+        <p class="price">Starting ₹50+</p>
+        <a class="btn btn-small" href="mailto:moxitsonwal618@gmail.com?subject=Thumbnail%20Order&body=Hey%20Moxit%2C%20I%27d%20like%20to%20order%20a%20thumbnail...">Order via Email</a>
+      </div>
 
-<div class="card-container">
+      <div class="card service-card">
+        <span class="service-icon">🎬</span>
+        <h3>Shorts Video Editing</h3>
+        <p>Fast-paced edits optimized for YouTube Shorts.</p>
+        <p class="price">Starting ₹80+</p>
+        <a class="btn btn-small" href="mailto:moxitsonwal618@gmail.com?subject=Shorts%20Editing%20Order&body=Hey%20Moxit%2C%20I%27d%20like%20to%20order%20a%20Shorts%20edit...">Order via Email</a>
+      </div>
 
-<div class="card">
+      <div class="card service-card">
+        <span class="service-icon">💻</span>
+        <h3>Basic Website Creation</h3>
+        <p>Simple portfolio websites built using HTML and CSS.</p>
+        <p class="price">Starting ₹500+</p>
+        <a class="btn btn-small" href="mailto:moxitsonwal618@gmail.com?subject=Website%20Order&body=Hey%20Moxit%2C%20I%27d%20like%20a%20website%20built...">Order via Email</a>
+      </div>
 
-<h3>YouTube Thumbnail Design</h3>
-
-<p>Custom eye-catching gaming thumbnails designed to attract viewers.</p>
-
-<p><strong>Starting ₹50+</strong></p>
-
-</div>
-
-<div class="card">
-
-<h3>Shorts Video Editing</h3>
-
-<p>Fast-paced edits optimized for YouTube Shorts.</p>
-
-<p><strong>Starting ₹80+</strong></p>
-
-</div>
-
-<div class="card">
-
-<h3>Basic Website Creation</h3>
-
-<p>Simple portfolio websites built using HTML and CSS.</p>
-
-<p><strong>Starting ₹500+</strong></p>
-
-</div>
-
-<div class="card">
-
-<h3>Minecraft Collaboration</h3>
-
-<p>PvP battles, SMP gameplay and creator collaborations.</p>
-
-</div>
-
-</div>
-
+      <div class="card service-card">
+        <span class="service-icon">⚔️</span>
+        <h3>Minecraft Collaboration</h3>
+        <p>PvP battles, SMP gameplay and creator collaborations.</p>
+        <p class="price">Message for details</p>
+        <a class="btn btn-small" href="mailto:moxitsonwal618@gmail.com?subject=Minecraft%20Collab&body=Hey%20Moxit%2C%20I%27d%20like%20to%20collab...">Email Me</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="container">
+    <p class="eyebrow center">// Help Menu</p>
+    <h2 class="section-title">FAQ</h2>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-head" aria-expanded="false">
+          <span>How do I order a thumbnail or edit?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p>Email me with what you need, your channel/video link, and any style references. I'll reply with details and timing.</p></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-head" aria-expanded="false">
+          <span>Do you take Minecraft collab requests?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p>Yes — I'm open to PvP duels, SMP collabs and content crossovers. Send me an email and we'll figure out the details.</p></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-head" aria-expanded="false">
+          <span>What's your turnaround time?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p>It depends on the size of the order and what's already in my queue. I'll always give you an honest estimate before we start.</p></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-head" aria-expanded="false">
+          <span>Can you build me a website?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p>Yes, simple HTML/CSS portfolio-style sites are my specialty right now. Email me what you're picturing and I'll let you know if it's a fit.</p></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-head" aria-expanded="false">
+          <span>How do payments work?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p>We'll sort out payment details over email once we've agreed on the order — nothing is charged upfront without discussing it first.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= CONTACT ================= -->
-
 <section id="contact">
+  <div class="container">
+    <p class="eyebrow center">// Get In Touch</p>
+    <h2 class="section-title">Contact</h2>
+    <p class="contact-text">
+      Want to collaborate, work together or ask something? Send a message below
+      or email me directly — I read everything.
+    </p>
 
-<h2 class="section-title">Contact</h2>
+    <form id="contactForm" class="contact-form panel" novalidate>
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="What's up?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary full">Send Message</button>
+      <p class="form-note" id="formNote">This opens your email app with the message pre-filled — nothing is sent automatically.</p>
+    </form>
 
-<p class="contact-text">
-
-Want to collaborate, work together or ask something?
-Feel free to contact me anytime.
-
-</p>
-
-<div class="contact-buttons">
-
-<a href="mailto:moxitsonwal618@gmail.com" class="btn">Email Me</a>
-
-<a href="https://www.youtube.com/@MoxitXGaming" target="_blank" class="btn">Visit Channel</a>
-
-</div>
-
+    <div class="contact-buttons">
+      <a href="mailto:moxitsonwal618@gmail.com" class="btn btn-ghost">Email Me Directly</a>
+      <a href="https://www.youtube.com/@MoxitXGaming" target="_blank" rel="noopener" class="btn btn-ghost">Visit Channel</a>
+    </div>
+  </div>
 </section>
 
-<!-- ================= BACK TO TOP ================= -->
+</main>
 
-<button id="topBtn">⬆</button>
+<!-- ================= BACK TO TOP ================= -->
+<button id="topBtn" aria-label="Back to top">⬆</button>
+
+<!-- ================= ACHIEVEMENT TOASTS ================= -->
+<div id="toastContainer" aria-live="polite"></div>
 
 <!-- ================= FOOTER ================= -->
-
 <footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="logo.jpg" alt="Moxit logo" class="footer-logo">
+      <div>
+        <h3>Moxit</h3>
+        <p>Creator • Gamer • Future Developer</p>
+      </div>
+    </div>
 
-<h3>Moxit</h3>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<p>Creator • Gamer • Future Developer</p>
-
-<p>© 2026 Moxit Portfolio</p>
-
-<p class="footer-small">
-Built with HTML, CSS and JavaScript ⚡
-</p>
-
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@MoxitXGaming" target="_blank" rel="noopener" aria-label="Main YouTube channel">YouTube</a>
+      <a href="https://www.youtube.com/@MoxitClips" target="_blank" rel="noopener" aria-label="Clips YouTube channel">Clips</a>
+      <a href="mailto:moxitsonwal618@gmail.com" aria-label="Email">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Moxit Portfolio</p>
+    <p class="footer-small">Built with HTML, CSS and JavaScript ⚡ — v2</p>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
 <script src="script.js"></script>
-
 </body>
-
 </html>
